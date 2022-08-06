@@ -23,6 +23,6 @@ def handle_imu_pose(msg):
     br.sendTransform(t)
 
 if __name__ == '__main__':
-      rospy.init_node('tf_broadcaster_imu')
+      rospy.init_node('imu_tf')
       rospy.Subscriber('/imu/data', Imu, handle_imu_pose)
       rospy.spin()
