@@ -33,7 +33,7 @@ roslaunch imu_driver imu_before.launch
 
   After you successfully finished the launch file, you can only run the launch file below each time.
   
-  :warning: Before it tell you 'Acceleration calibration complete! (bias = ...', you shouldn't move the IMU
+  :warning: Before it tells you 'Acceleration calibration complete! (bias = ...', you shouldn't move the IMU
 
 ```bash=1
 roslaunch imu_driver imu.launch
