@@ -1,7 +1,7 @@
 # IMU_driver
 > For MPU 6050
 
-### Before using
+### :golf: Before using
 - Download the complementary filter for IMU
 ```bash=1
 sudo apt-get install ros-noetic-imu-tools
@@ -16,7 +16,7 @@ sudo apt-get install ros-noetic-imu-tools
   
     In line 80, change the topic name : "corrected" to "/imu/data_raw"
   
-### Launch file
+### :rocket: Launch file
 - **First usage**
   - When you launch the file, the program will ask you to rotate the imu. 
   - After the system tell you 'Saving calibration file... Success!', you can directly shutdown it.
@@ -26,6 +26,8 @@ roslaunch imu_driver imu_before.launch
 - **After**
 
   After you successfully finished the launch file, you can only run the launch file below each time.
+  
+  :warning: Before it tell you 'Acceleration calibration complete! (bias = ...', you shouldn't move the IMU
 
 ```bash=1
 roslaunch imu_driver imu.launch
