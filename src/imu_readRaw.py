@@ -2,7 +2,7 @@
 
 import smbus
 import rospy
-import numpy as np
+from math import pi
 from sensor_msgs.msg import Imu
 from imu_registers import *
 
@@ -36,9 +36,10 @@ def publish_imu(timer_event):
     accel_z = read_word_2c(ACCEL_ZOUT_H) / 16384.0
 
     # Read the gyro vals
-    gyro_x = (read_word_2c(GYRO_XOUT_H)) * (np.pi / 180.) / 131.0
-    gyro_y = (read_word_2c(GYRO_YOUT_H)) * (np.pi / 180.) / 131.0
-    gyro_z = (read_word_2c(GYRO_ZOUT_H)) * (np.pi / 180.) / 131.0
+    # Turn degree to radius
+    gyro_x = (read_word_2c(GYRO_XOUT_H)) * (pi / 180.) / 131.0
+    gyro_y = (read_word_2c(GYRO_YOUT_H)) * (pi / 180.) / 131.0
+    gyro_z = (read_word_2c(GYRO_ZOUT_H)) * (pi / 180.) / 131.0
 
     imu_msg.linear_acceleration.x = accel_x
     imu_msg.linear_acceleration.y = accel_y
@@ -51,7 +52,6 @@ def publish_imu(timer_event):
     imu_msg.header.stamp = rospy.Time.now()
 
     imu_pub.publish(imu_msg)
-
 
 
 imu_pub = None
