@@ -14,7 +14,8 @@ sudo apt-get install ros-noetic-imu-tools
   
   - In package imu_calib cloned above, modify the file : ```src/apply_calib.cpp```
   
-    In line 80, change the topic name : "corrected" to "/imu/data_raw"
+    :warning: In line 80, change the topic name : "corrected" to "/imu/data_raw"
+    - Since the filter will subscribe the topic : "/imu/data_raw"
   
 ### :rocket: Launch file
 - **First usage**
