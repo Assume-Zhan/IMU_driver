@@ -25,7 +25,7 @@ sudo apt-get install python3-smbus
 ### :rocket: Launch file
 - **First usage**
   - When you launch the file, the program will ask you to rotate the imu. 
-  - After the system tell you 'Saving calibration file... Success!', you can directly shutdown it.
+  - After the system tells you 'Saving calibration file... Success!', you can directly shutdown it.
 ```bash=1
 roslaunch imu_driver imu_before.launch
 ```
