@@ -1,0 +1,17 @@
+<launch>
+
+    <!-- imu_driver -->
+    <node pkg="imu_driver" type="imu_readRaw.py" name="imu_readRaw" output="screen">
+        <param name="driver_topic" value="raw"/>
+    </node>
+
+    <!-- Add calibration on imu raw data -->
+    <node pkg="imu_calib" type="apply_calib" name="apply_calib" output="screen"/>
+
+    <!-- Complementary filter for imu -->
+    <node pkg="imu_complementary_filter" type="complementary_filter_node" name="filter_node"/>
+
+    <!-- imu_tf -->
+    <node pkg="imu_driver" type="imu_tf.py" name="imu_tf" output="screen"/>
+
+</launch>

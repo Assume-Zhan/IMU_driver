@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- imu_driver -->
+    <node pkg="imu_driver" type="imu_readRaw.py" name="imu_readRaw" output="screen">
+        <param name="driver_topic" value="imu"/>
+    </node>
+
+    <!-- Add calibration on imu raw data -->
+    <node pkg="imu_calib" type="do_calib" name="do_calib" output="screen"/>
+
+</launch>
