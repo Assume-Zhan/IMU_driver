@@ -47,4 +47,4 @@ rviz
 - In the left bar : Displays -> Global Options -> Fixed Frame
   - Change 'map' to 'world'
 - In the left bar : Displays -> Add  (click it)
-  - Choose TF to add in it
+  - Choose TF to add in
