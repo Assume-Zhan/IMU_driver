@@ -2,6 +2,7 @@
 > For MPU 6050
 
 ### :golf: Before using
+- Setup your hardware ---> [watch this](https://blog.gtwang.org/iot/raspberry-pi-mpu6050-six-axis-gyro-accelerometer-1/)
 - Download the complementary filter for IMU
 ```bash=1
 sudo apt-get install ros-noetic-imu-tools
@@ -16,6 +17,10 @@ sudo apt-get install ros-noetic-imu-tools
   
     :warning: In line 80, change the topic name : "corrected" to "/imu/data_raw"
     - Since the filter will subscribe the topic : "/imu/data_raw"
+- Setup smBus
+```bash=1
+sudo apt-get install python3-smbus
+```
   
 ### :rocket: Launch file
 - **First usage**
