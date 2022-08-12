@@ -25,7 +25,7 @@ sudo apt-get install python3-smbus
 ### :rocket: Launch file
 - **First usage**
   - When you launch the file, the program will ask you to rotate the imu. 
-  - After the system tell you 'Saving calibration file... Success!', you can directly shutdown it.
+  - After the system tells you 'Saving calibration file... Success!', you can directly shutdown it.
 ```bash=1
 roslaunch imu_driver imu_before.launch
 ```
@@ -33,7 +33,7 @@ roslaunch imu_driver imu_before.launch
 
   After you successfully finished the launch file, you can only run the launch file below each time.
   
-  :warning: Before it tell you 'Acceleration calibration complete! (bias = ...', you shouldn't move the IMU
+  :warning: Before it tells you 'Acceleration calibration complete! (bias = ...', you shouldn't move the IMU
 
 ```bash=1
 roslaunch imu_driver imu.launch
@@ -47,4 +47,4 @@ rviz
 - In the left bar : Displays -> Global Options -> Fixed Frame
   - Change 'map' to 'world'
 - In the left bar : Displays -> Add  (click it)
-  - Choose TF to add in it
+  - Choose TF to add in
