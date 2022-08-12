@@ -6,10 +6,17 @@
     </node>
 
     <!-- Add calibration on imu raw data -->
-    <node pkg="imu_calib" type="apply_calib" name="apply_calib" output="screen"/>
+    <node pkg="imu_calib" type="apply_calib" name="apply_calib" output="screen">
+        <remap from="corrected" to="/imu/data_raw"/>
+    </node>
 
-    <!-- Complementary filter for imu -->
-    <node pkg="imu_complementary_filter" type="complementary_filter_node" name="filter_node"/>
+    <!-- Madgwick filter for imu -->
+    <node pkg="imu_filter_madgwick" type="imu_filter_node" name="filter_node" output="screen">
+        <param name="use_mag" value="false"/>
+        <param name="publish_tf" value="false"/>
+        <param name="remove_gravity_vector" value="true"/>
+        <!-- <param name="yaw_offset" value="3.14159265359"/> -->
+    </node>
 
     <!-- imu_tf -->
     <node pkg="imu_driver" type="imu_tf.py" name="imu_tf" output="screen"/>
