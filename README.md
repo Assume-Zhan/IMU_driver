@@ -10,14 +10,9 @@ sudo apt-get install ros-noetic-imu-tools
 - Git clone the the package for [IMU calibration](https://github.com/sunfu-chou/imu_calib)
 
   > By [sunfu-chou](https://github.com/sunfu-chou)
-
-- Modify
   
-  - In package imu_calib cloned above, modify the file : ```src/apply_calib.cpp```
-  
-    :warning: In line 80, change the topic name : "corrected" to "/imu/data_raw"
-    - Since the filter will subscribe the topic : "/imu/data_raw"
 - Setup smBus
+  > For the i2c communication between IMU and Raspberry pi
 ```bash=1
 sudo apt-get install python3-smbus
 ```
@@ -44,7 +39,10 @@ roslaunch imu_driver imu.launch
 ```
 rviz
 ```
-- In the left bar : Displays -> Global Options -> Fixed Frame
-  - Change 'map' to 'world'
-- In the left bar : Displays -> Add  (click it)
-  - Choose TF to add in
+- Open the configure file in "rviz/imu_rviz.rviz"
+
+### :eye_speech_bubble: Procedure
+- imu_readRaw.py read imu raw data and publish to topic "/raw"
+- apply_calib subscribe the topic "/raw", calibrate the raw data and publish to topic "/imu/data_raw"
+- madgwick filter subscribe the topic "/imu/data_raw" and publish the filtered data to "/imu/data"
+
